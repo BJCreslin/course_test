@@ -28,6 +28,19 @@ public class RightTriangle extends Triangle {
 
     @Override
     public boolean exists() {
-        return super.exists();
+
+        if (!super.exists()) {
+            return false;
+        }
+        double a = first.distanceTo(second);
+        double b = second.distanceTo(third);
+        double c = third.distanceTo(first);
+        System.out.println(a * a + " " + b * b + " " + c * c);
+        if ((Math.abs(a * a + b * b - c * c) < 0.000001) ||
+                (Math.abs(a * a + c * c - b * b) < 0.000001) ||
+                (Math.abs(c * c + b * b - a * a) < 0.000001)) {
+            return true;
+        }
+        return false;
     }
 }

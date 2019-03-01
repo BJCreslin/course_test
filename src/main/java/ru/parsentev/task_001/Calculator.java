@@ -11,28 +11,36 @@ import static org.slf4j.LoggerFactory.getLogger;
  */
 public class Calculator {
     private static final Logger log = getLogger(Calculator.class);
+    private static double result;
 
     public double getResult() {
-        throw new UnsupportedOperationException();
+
+        //throw new UnsupportedOperationException();
+        return result;
     }
 
     public void add(double first, double second) {
-        throw new UnsupportedOperationException();
+        //throw new UnsupportedOperationException();
+        result = first + second;
     }
 
     public void substract(double first, double second) {
-        throw new UnsupportedOperationException();
+        //throw new UnsupportedOperationException();
+        result = first - second;
     }
 
     public void multiple(double first, double second) {
-        throw new UnsupportedOperationException();
+        result = first * second;
     }
 
     public void div(double first, double second) {
-        throw new UnsupportedOperationException();
+
+        if (second == 0.0) throw new java.lang.IllegalStateException();
+        result = first / second;
     }
 
     public void expand(double first, double second) {
-        throw new UnsupportedOperationException();
+        //throw new UnsupportedOperationException();
+        result = Math.pow(first, second);
     }
 }

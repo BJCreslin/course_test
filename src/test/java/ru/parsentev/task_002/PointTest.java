@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
  * @author parsentev
  * @since 28.07.2016
  */
-@Ignore
+//@Ignore
 public class PointTest {
     @Test
     public void whenHasTwoPointThenReturnDistance() {

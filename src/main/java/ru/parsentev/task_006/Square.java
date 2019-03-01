@@ -1,8 +1,14 @@
 package ru.parsentev.task_006;
 
+import javafx.collections.transformation.SortedList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.parsentev.task_002.Point;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 import static org.slf4j.LoggerFactory.getLogger;
 
@@ -28,6 +34,24 @@ public class Square {
     }
 
     public boolean exists() {
-        throw new UnsupportedOperationException();
+        List<Double> doubleSet = new ArrayList<>();
+        doubleSet.add(first.distanceTo(second));
+        doubleSet.add(first.distanceTo(third));
+        doubleSet.add(first.distanceTo(fourth));
+        doubleSet.add(second.distanceTo(third));
+        doubleSet.add(second.distanceTo(fourth));
+        doubleSet.add(third.distanceTo(fourth));
+        doubleSet.sort(Double::compareTo);
+        doubleSet.stream().forEach(x -> System.out.print(x + " "));
+        System.out.println();
+        if (doubleSet.contains(0d)) return false;
+        Double[] doubles = doubleSet.toArray(new Double[doubleSet.size()]);
+
+        if ((Math.abs((doubles[0] - doubles[1])) > 0.0001) ||
+                (Math.abs((doubles[2] - doubles[3])) > 0.0001) ||
+                (Math.abs((doubles[4] - doubles[5])) > 0.0001)) {
+            return false;
+        }
+        return true;
     }
 }

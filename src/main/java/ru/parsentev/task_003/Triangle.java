@@ -25,11 +25,30 @@ public class Triangle {
         this.third = third;
     }
 
+    private boolean isInline(Point p1, Point p2, Point p3) {
+        if ((p1.distanceTo(p2) + p2.distanceTo(p3)) == p1.distanceTo(p3)) return true;
+        if ((p2.distanceTo(p3) + p3.distanceTo(p1)) == p2.distanceTo(p1)) return true;
+        if ((p3.distanceTo(p1) + p1.distanceTo(p2)) == p3.distanceTo(p2)) return true;
+        return false;
+    }
+
     public boolean exists() {
-        throw new UnsupportedOperationException();
+        if ((first == null) || (second == null) || (third == null)) return false;
+        if (isInline(first, second, third)) {
+            return false;
+        }
+        return true;
     }
 
     public double area() {
-        throw new UnsupportedOperationException();
+        if (!exists()) throw new IllegalStateException();
+
+        double a = first.distanceTo(second);
+        double b = second.distanceTo(third);
+        double c = third.distanceTo(first);
+        if ((a == 0) || (b == 0) || (c == 0)) return 0;
+        double p = (a + b + c) / 2;
+        return Math.sqrt(p * (p - a) * (p - b) * (p - c));
+
     }
 }
