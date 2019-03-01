@@ -2,6 +2,8 @@ package ru.parsentev.task_011;
 
 import org.slf4j.Logger;
 
+import java.util.Arrays;
+
 import static org.slf4j.LoggerFactory.getLogger;
 
 /**
@@ -19,6 +21,7 @@ public class ArrayContainsOne {
     }
 
     public boolean containsOnlyOne() {
-        throw new UnsupportedOperationException();
+        return (Arrays.stream(values).filter((x) -> x == 1).count() == values.length);
     }
+
 }

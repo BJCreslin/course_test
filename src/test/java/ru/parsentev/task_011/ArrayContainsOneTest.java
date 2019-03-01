@@ -2,6 +2,7 @@ package ru.parsentev.task_011;
 
 import org.junit.Ignore;
 import org.junit.Test;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
@@ -15,15 +16,22 @@ import static org.junit.Assert.*;
 public class ArrayContainsOneTest {
     @Test
     public void onlyOne() {
-        ArrayContainsOne array = new ArrayContainsOne(new int[] {1});
+        ArrayContainsOne array = new ArrayContainsOne(new int[]{1});
         boolean result = array.containsOnlyOne();
         assertThat(result, is(true));
     }
 
     @Test
     public void notOnlyOne() {
-        ArrayContainsOne array = new ArrayContainsOne(new int[] {1, 1, 0});
+        ArrayContainsOne array = new ArrayContainsOne(new int[]{1, 1, 0});
         boolean result = array.containsOnlyOne();
         assertThat(result, is(false));
+    }
+
+    @Test
+    public void manyOne() {
+        ArrayContainsOne array = new ArrayContainsOne(new int[]{1, 1, 1, 1, 1, 1, 1});
+        boolean result = array.containsOnlyOne();
+        assertThat(result, is(true));
     }
 }

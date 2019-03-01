@@ -26,4 +26,11 @@ public class UniqueCharsTest {
         int result = unique.unique();
         assertThat(result, is(3));
     }
+    @Test
+    public void zeroUnique() {
+        UniqueChars unique = new UniqueChars("");
+        int result = unique.unique();
+        assertThat(result, is(0));
+    }
+
 }
